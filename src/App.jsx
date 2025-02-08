@@ -15,11 +15,15 @@ export default function App() {
     localStorage.setItem("ITEMS",JSON.stringify(todos))
   },[todos])
 
+  function generateId() {
+    return Math.random().toString(36).substr(2, 9);
+  }
 
   function addTodo(title){
     setTodos(currentTodos=>{
       return [...currentTodos,
-        {id:crypto.randomUUID(),title:title,completed:false},]
+        // {id:crypto.randomUUID(),title:title,completed:false},]
+        { id: generateId(), title: title, completed: false },]
     })
   } 
 
